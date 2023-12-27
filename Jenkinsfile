@@ -29,7 +29,8 @@ pipeline {
             steps {
                 // Add additional build steps if needed
                 script {
-                            echo 'The Python application is successfully built, tested and deployed...'
+                
+                    echo 'The Python application is successfully built, tested and deployed...'
                     // Add any additional build commands
                 }
             }
