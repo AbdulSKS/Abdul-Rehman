@@ -9,7 +9,6 @@ app.set('port', (process.env.PORT || 9981))
 app.use(express.static(__dirname + '/images'))
 
 
-/*
 app.get("/getCall", function(req,res){ 
 console.log("GET Method caled");
 console.log(__dirname);

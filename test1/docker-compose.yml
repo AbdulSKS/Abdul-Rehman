@@ -1,0 +1,19 @@
+version: '3'
+services:
+  nodejs-service:
+    build: ./nodejs-service
+    ports:
+      - "3000:3000"
+    depends_on:
+      - python-service
+      - go-service
+
+  python-service:
+    build: ./python-service
+    ports:
+      - "5000:5000"
+
+  go-service:
+    build: ./go-service
+    ports:
+      - "8080:8080"
