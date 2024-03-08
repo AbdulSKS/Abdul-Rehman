@@ -23,7 +23,7 @@ stage('Docker Image push')
 sh "docker push olyumpus/test:1 "
 
 stage('Docker Container Creation')
-sh "docker run -d -name test -p 3000:3000 olyumpus/test:1 "
+sh "docker run -d --name test -p 3000:3000 olyumpus/test:1 "
 
 
 
