@@ -11,16 +11,6 @@ app.use(express.static(__dirname + '/images'))
 */
 app.use(express.json());
 
-app.post('/process', async (req, res) => {
-  // Forward request to Python service
-  const pythonResponse = await axios.post('http://python-service:5000/process', req.body);
-
-  // Forward request to Go service
-  const goResponse = await axios.post('http://go-service:8080/log', req.body);
-
-  res.json({ pythonResponse: pythonResponse.data, goResponse: goResponse.data });
-});
-
 
 
 /*
