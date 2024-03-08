@@ -1,58 +1,55 @@
-var express = require("express");
+var express = require("express"); 
 const path = require('path');
 const cfenv = require('cfenv');
 
-var app  =  express();
+var app  =  express(); 
 var appEnv = cfenv.getAppEnv();
 var url = process.env.url
 app.set('port', (process.env.PORT || 3000))
-/*
 app.use(express.static(__dirname + '/images'))
-*/
-app.use(express.json());
-
 
 
 /*
-app.get("/getCall", function(req,res){
+app.get("/getCall", function(req,res){ 
 console.log("GET Method caled");
 console.log(__dirname);
 
 res.send("<h2>Welcome to Node JS express application</h2>"+appEnv.url+appEnv.port+port+process.env.LOGNAME);
 
 }).listen(9009);
-console.log(__dirname+"/images/lol.jpg");
+console.log(__dirname+"/images/mithunlogo.jpg");
 */
-app.get('/opika', function(request, response) {
+app.get('/mithuntechnologies', function(request, response) {
     //response.send("<h2><center>Welcome to Node JS app</h2>");
-    response.write("Node JS  Application!!!!!!!!!!!!!!!!!!!!! ");
-
-    response.write("Welcome To The Demo Of Nodejs, Python and Go Integration By Abdul Rehman" );
+    response.write("<h2><center><u>Node JS  Application </u></center></h2>");
+	
+    response.write("<h2><center>Welcome to  Mithun Technologies. Please Contact +91-9980923226,++91-9980923216 for more information or send an email to devopstrainingblr@gmail.com <center></h2>" );
     response.end();
-
+    
   })
-
+ 
 
 //app.get("/html", function(req,res){
 app.get("/html", function(req,res){
     res.set("Content-Type","text/html");
-    //res.contentType("html") ;
+    //res.contentType("html") ; 
     res.write("<h2>Welcome Docker</h2>");
     res.write("<h2>/html call</h2>");
-    //must end
+    //must end 
     res.end();
-
+    
     });
     app.get("/jsonData", function(req,res){
         res.type('json');
         //res.type('application/json');
-        //res.json({'name': 'Abdul Rehman'});
+        //res.json({'name': 'Mithun Reddy L'});
         res.send({
-                'name': 'Abdul Rehman',
-                'technology': 'DevOps',
-
-        });
-
+		'name': 'Mithun Technologies',
+		'technology': 'DevOps',
+		'contact' : '9980923226',
+		'email': 'devopstrainingblr@gmail.com'
+	            });
+        
         });
 app.get("/queryparam", function(req,res){
 //res.send(req.query);
@@ -73,16 +70,11 @@ app.get("/status-code-500", function(req, res) {
 
 app.get('/redirect', function(req, res) {
     //Send status 300
-        res.redirect('http://opika.com');
+        res.redirect('http://mithuntechnologies.com');
     });
-
-
-    app.listen(app.get('port'), function() {
-        console.log("Node JS app is running at http://localhost:" + app.get('port') +"/opika");
-      })
     
  
     app.listen(app.get('port'), function() {
-        console.log("Node JS app is running at http://localhost:" + app.get('port') +"/mithuntechnologies");
+        console.log("Node JS app is running at http://localhost:" + app.get('port') +"/opika");
       })
     
