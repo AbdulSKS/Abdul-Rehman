@@ -19,7 +19,7 @@ res.send("<h2>Welcome to Node JS express application</h2>"+appEnv.url+appEnv.por
 }).listen(9009);
 console.log(__dirname+"/images/mithunlogo.jpg");
 */
-app.get('/abdulrehman', function(request, response) {
+app.get('/abdulrehmaan', function(request, response) {
     //response.send("<h2><center>Welcome to Node JS app</h2>");
     response.write("<h2><center><u>Node JS  Application </u></center></h2>");
 	
