@@ -1,13 +1,11 @@
-FROM node:14
+FROM --platform=linux/amd64 node:16.20-alpine
 
-WORKDIR /app
+RUN apk add vim
 
-COPY package.json package.json
-
+WORKDIR /opt/wynd-backend
+COPY package*.json ./
 RUN npm install
-
 COPY . .
-
 EXPOSE 3000
 
-CMD ["node", "app.js"]
+CMD [ "node", "server.js" ]
