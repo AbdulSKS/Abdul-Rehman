@@ -59,18 +59,18 @@ jobs:
       run: echo "deb https://apt.kubernetes.io/kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
 
     - name: Create .kube directory
-      run: mkdir -p /etc/kubernetes/admin.conf 
+      run: mkdir -p $HOME/.kube
       
     - name: Create kube config file
-     # run: touch $HOME/.kube/config
+      run: touch $HOME/.kube/config
 
     - name: Write kubeconfig to file
-      run: echo "$KUBECONFIG" > /etc/kubernetes/admin.conf 
+      run: echo "$KUBECONFIG" > $HOME/.kube/config
         
     - name: Test kubectl commands
       run: |
-        kubectl version
         kubectl get pods -n kube-system
+        kubectl version
 
 
 
