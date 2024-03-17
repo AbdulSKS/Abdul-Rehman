@@ -55,16 +55,25 @@ jobs:
 
     - name: Add Kubernetes repository to apt sources
       run: echo "deb https://apt.kubernetes.io/kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+
+    - name: Create .kube directory
+      run: mkdir -p $HOME/.kube
+      
+    - name: Create kube config file
+      run: touch $HOME/.kube/config
                
-    - name: Kubernetes set context
+    - name: Set up kubectl
       uses: azure/setup-kubectl@v1
       with:
-        version: 'latest'
         kubeconfig: ${{ secrets.RKUBECONFIG }}
+
+    - name: Write kubeconfig to file
+      run: echo "$RKUBECONFIG" > $HOME/.kube/config
         
     - name: Test kubectl commands
       run: |
         kubectl version
+        kubectl get pods -n kube-system
 
 
 
