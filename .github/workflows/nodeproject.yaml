@@ -39,7 +39,7 @@ jobs:
 
     - name: Set up KUBECONFIG
       run: |
-        echo ${{ secrets.KUBECONFIG }} > ~/.kube/config
+        echo ${{ secrets.RKUBECONFIG }} > ~/.kube/config
 
 
 
