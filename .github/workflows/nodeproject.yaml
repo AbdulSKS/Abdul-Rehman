@@ -37,5 +37,9 @@ jobs:
       run: |
         docker run -d --name nodejstest -p 3000:3000 olyumpus/nodejstest:1
 
+    - name: Start ngrok
+      run: |
+        ngrok http 3000
+
 
       
