@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+env:
+  KUBECONFIG: ${{ secrets.RKUBECONFIG }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -36,11 +39,7 @@ jobs:
       run: |
         # docker run -d --name nodejstest -p 3000:3000 olyumpus/nodejstest:1
 
-env:
-  KUBECONFIG: ${{ secrets.RKUBECONFIG }}
-
-jobs:
-  build:
+  deploy:
     runs-on: kubernetes
     steps:
     - name: Deploy to k8s
