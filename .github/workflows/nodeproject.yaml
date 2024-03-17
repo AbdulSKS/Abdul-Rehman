@@ -41,10 +41,11 @@ jobs:
       run: |
         wget -q -O /tmp/ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
         unzip -o /tmp/ngrok.zip -d /usr/local/bin
-        ngrok config add-authtoken ${{ secrets.NGROK_PASSWORD }}
+       
 
     - name: Start ngrok
       run: |
+        ngrok config add-authtoken ${{ secrets.NGROK_PASSWORD }}
         ngrok http 3000
 
 
