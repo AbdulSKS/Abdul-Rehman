@@ -37,6 +37,11 @@ jobs:
       run: |
         docker run -d --name nodejstest -p 3000:3000 olyumpus/nodejstest:1
 
+    - name: Download and setup ngrok
+      run: |
+        wget -q -O /tmp/ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+        unzip -o /tmp/ngrok.zip -d /usr/local/bin
+
     - name: Start ngrok
       run: |
         ngrok http 3000
