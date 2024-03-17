@@ -63,12 +63,6 @@ jobs:
       
     - name: Create kube config file
       run: touch $HOME/.kube/config
-               
-    - name: Set up kubectl
-      uses: azure/setup-kubectl@v1
-      with:
-        version: '1.28.2'
-        kubeconfig: ${{ secrets.RKUBECONFIG }}
 
     - name: Write kubeconfig to file
       run: echo "$RKUBECONFIG" > $HOME/.kube/config
