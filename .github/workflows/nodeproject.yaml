@@ -48,7 +48,12 @@ jobs:
       with:
         kubeconfig: ${{ secrets.RKUBECONFIG }}
         version: 'latest'
-
+        
+    - name: Test kubectl commands
+      run: |
+        kubectl get pods
+        kubectl get deployments
+        kubectl version
 
 
 
