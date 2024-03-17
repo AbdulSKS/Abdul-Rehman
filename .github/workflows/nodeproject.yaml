@@ -65,7 +65,7 @@ jobs:
       run: touch $HOME/.kube/config
 
     - name: Write kubeconfig to file
-      run: echo "$RKUBECONFIG" > $HOME/.kube/config
+      run: echo "$KUBECONFIG" > $HOME/.kube/config
         
     - name: Test kubectl commands
       run: |
