@@ -33,5 +33,9 @@ jobs:
         docker login -u olyumpus -p ${{ secrets.DOCKER_PASSWORD }}
         docker push olyumpus/nodejstest:1
 
+    - name: Run Docker Conatiner
+      run: |
+        docker run -d --name nodejstest -p 3000:3000 olyumpus/nodejstest:1
+
 
       
