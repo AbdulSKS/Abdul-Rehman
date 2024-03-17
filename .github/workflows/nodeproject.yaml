@@ -43,7 +43,7 @@ jobs:
         version: 'latest'
 
     - name: Set up KUBECONFIG
-      run: echo "${{ secrets.KUBECONFIG }}" | base64 -d > ~/.kube/config
+      run: echo "${{ secrets.RKUBECONFIG }}" | base64 -d > ~/.kube/config
 
 
 
