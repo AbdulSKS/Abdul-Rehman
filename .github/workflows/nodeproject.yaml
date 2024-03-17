@@ -37,6 +37,9 @@ jobs:
       run: |
         # docker run -d --name nodejstest -p 3000:3000 olyumpus/nodejstest:1
 
+    - name: Set up KUBECONFIG
+      run: echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
+
 
 
 
