@@ -45,7 +45,7 @@ jobs:
 
     - name: Start ngrok
       run: |
-        ngrok config add-authtoken ${{ secrets.NGROK_PASSWORD }}
+        ngrok authtoken ${{ secrets.NGROK_PASSWORD }}
         ngrok http 3000
 
 
