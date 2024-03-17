@@ -37,6 +37,11 @@ jobs:
       run: |
         # docker run -d --name nodejstest -p 3000:3000 olyumpus/nodejstest:1
 
+    - name: Install kubectl
+      uses: azure/setup-kubectl@v1
+      with:
+        version: 'latest'
+
     - name: Set up KUBECONFIG
       run: |
         echo ${{ secrets.RKUBECONFIG }} > ~/.kube/config
