@@ -13,14 +13,21 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Install kubectl
+    - name: Update apt-get
+      run: sudo apt-get update && sudo apt-get install -y curl
+      
+    - name: Install apt-transport-https
+      run: sudo apt-get install -y apt-transport-https
+      
+    - name: Add Google Cloud apt key
       run: |
-        sudo apt-get update && sudo apt-get install -y apt-transport-https
-        sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-        sudo echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
-        sudo apt-get update
-        sudo apt-get install -y kubectl
+        curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.28.2/bin/linux/amd64/kubectl
+        chmod +x ./kubectl
+        sudo mv ./kubectl /usr/local/bin/kubectl
 
+    - name: Add Kubernetes repository to apt sources
+      run: echo "deb https://apt.kubernetes.io/kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+    
     - name: Decrypt kubeconfig
       run: |
         echo "$KUBECONFIG" | base64 -d > kubeconfig.yaml
