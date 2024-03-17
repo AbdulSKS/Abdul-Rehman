@@ -1,4 +1,4 @@
-name: My Project Checkout and Build.
+name: My Project Checkout and Build.s
 
 on:
   push:
