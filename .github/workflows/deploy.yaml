@@ -1,0 +1,35 @@
+name: Deploy to Kubernetes
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Install kubectl
+      run: |
+        sudo apt-get update && sudo apt-get install -y apt-transport-https
+        sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+        sudo echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+        sudo apt-get update
+        sudo apt-get install -y kubectl
+
+    - name: Decrypt kubeconfig
+      run: |
+        echo "$KUBECONFIG" | base64 -d > kubeconfig.yaml
+
+    - name: Configure kubectl
+      run: |
+        mkdir ~/.kube
+        mv kubeconfig.yaml ~/.kube/config
+
+    - name: Deploy to Kubernetes
+      run: |
+        kubectl get pods
