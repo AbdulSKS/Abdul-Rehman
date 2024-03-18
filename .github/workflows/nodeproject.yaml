@@ -30,7 +30,7 @@ jobs:
     - name: Push Docker image to Docker Hub
       run: |
         docker login -u olyumpus -p ${{ secrets.DOCKER_PASSWORD }}
-        docker push olyumpus/nodejstest:1
+        docker push olyumpus/nodejstest:2
 
     - name: Run Docker Conatiner
       run: |
