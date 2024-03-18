@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: nodejs
-          image: olyumpus/nodejstest:1 
+          image: olyumpus/nodejstest:3
           ports:
             - containerPort: 3000  # Adjust the port if your application listens on a different port
