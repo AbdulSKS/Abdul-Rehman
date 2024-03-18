@@ -43,34 +43,8 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ap-south-1
 
-    - name: Update apt-get
-      run: sudo apt-get update && sudo apt-get install -y curl
-      
-    - name: Install apt-transport-https
-      run: sudo apt-get install -y apt-transport-https
-      
-    - name: Add Google Cloud apt key
-      run: |
-        curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.28.2/bin/linux/amd64/kubectl
-        chmod +x ./kubectl
-        sudo mv ./kubectl /usr/local/bin/kubectl
 
-    - name: Add Kubernetes repository to apt sources
-      run: echo "deb https://apt.kubernetes.io/kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
-
-    - name: Create .kube directory
-      run: mkdir -p $HOME/.kube
       
-    - name: Create kube config file
-      run: touch $HOME/.kube/config
-
-    - name: Write kubeconfig to file
-      run: echo "$KUBECONFIG" > $HOME/.kube/config
-        
-    - name: Test kubectl commands
-      run: |
-        kubectl get pods
-        kubectl version
 
 
 
