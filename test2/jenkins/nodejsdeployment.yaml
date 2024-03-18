@@ -17,16 +17,3 @@ spec:
           image: olyumpus/nodejstest:1 
           ports:
             - containerPort: 3000  # Adjust the port if your application listens on a different port
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: nodejsservice
-spec:
-  selector:
-    app: sbtest
-  ports:
-    - protocol: TCP
-      port: 3000  # Port inside the cluster
-      targetPort: 3000  # Port your application listens on
-  type: NodePort
