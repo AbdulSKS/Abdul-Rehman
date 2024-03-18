@@ -25,7 +25,7 @@ jobs:
       
     - name: Build Docker image
       run: |
-        docker build -t olyumpus/nodejstest:1 .
+        docker build -t olyumpus/nodejstest:2 .
 
     - name: Push Docker image to Docker Hub
       run: |
