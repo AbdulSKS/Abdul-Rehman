@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1 
-kind: Rollout
+kind: Deployment
 metadata:
-  name: nodejsrollout
+  name: nodejs-deployment
 spec:
   replicas: 2
   strategy:
