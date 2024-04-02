@@ -1,7 +1,7 @@
 name: My Project Checkout and Build.s
 
 on:
-workflow_dispatch:
+  workflow_dispatch:
   push:
     branches:
       - main
