@@ -1,7 +1,7 @@
-apiVersion: app/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejs-ds
+  name: nodejs-deployment
 spec:
   replicas: 2
   strategy:
