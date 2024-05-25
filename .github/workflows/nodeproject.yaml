@@ -1,4 +1,4 @@
-name: My Project
+name: Cognition
 
 on:
   workflow_dispatch:
@@ -24,19 +24,6 @@ jobs:
     - name: Build
       run: npm install
       
-    - name: Build Docker image
-      run: |
-        docker build -t olyumpus/nodejstest:4 .
-
-    - name: Push Docker image to Docker Hub
-      run: |
-        docker login -u olyumpus -p ${{ secrets.DOCKER_PASSWORD }}
-        docker push olyumpus/nodejstest:4
-
-    - name: Run Docker Conatiner
-      run: |
-        # docker run -d --name nodejstest -p 3000:3000 olyumpus/nodejstest:4
-
     - name: Authenticate with AWS
       uses: aws-actions/configure-aws-credentials@v1
       with:
