@@ -33,8 +33,8 @@ app.get('/abdul', function(request, response) {
 app.get("/html", function(req,res){
     res.set("Content-Type","text/html");
     //res.contentType("html") ; 
-    res.write("<h2>Welcome Docker</h2>");
-    res.write("<h2>/html call</h2>");
+    res.write("<h2>Build and Deployed the Node JS application with a database using AWS Elastic Beanstalk</h2>");
+    res.write("<h2>/Developed by Abdul Rehman For Cognition </h2>");
     //must end 
     res.end();
     
