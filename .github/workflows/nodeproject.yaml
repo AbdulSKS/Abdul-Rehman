@@ -1,4 +1,4 @@
-name: Cognition
+name: Veltrix
 
 on:
   workflow_dispatch:
@@ -26,12 +26,17 @@ jobs:
       
     - name: Build Docker image
       run: |
-        docker build -t olyumpus/nodejstest:11 .
+        IMAGE_NAME=olyumpus/veltrix-project
+        IMAGE_TAG=${{ github.sha }}
+        docker build -t $IMAGE_NAME:$IMAGE_TAG .
 
     - name: Push Docker image to Docker Hub
       run: |
         docker login -u olyumpus -p ${{ secrets.DOCKER_PASSWORD }}
-        docker push olyumpus/nodejstest:11
+        IMAGE_NAME=olyumpus/nodejstest
+        IMAGE_TAG=${{ github.sha }}
+        docker push $IMAGE_NAME:$IMAGE_TAG
+    
       
 
 
