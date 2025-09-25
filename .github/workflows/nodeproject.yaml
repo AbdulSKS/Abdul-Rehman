@@ -33,7 +33,7 @@ jobs:
     - name: Push Docker image to Docker Hub
       run: |
         docker login -u olyumpus -p ${{ secrets.DOCKER_PASSWORD }}
-        IMAGE_NAME=olyumpus/nodejstest
+        IMAGE_NAME=olyumpus/veltrix-project
         IMAGE_TAG=${{ github.sha }}
         docker push $IMAGE_NAME:$IMAGE_TAG
     
