@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   nodejs:
-    image: olyumpus/nodejstest:1
+    image: olyumpus/veltrix-project:${IMAGE_TAG}
     container_name: nodejs_app
     ports:
       - "3000:3000"   # Maps host:container port
